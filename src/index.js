@@ -38,9 +38,16 @@ app.use(session({
 
 //Routes
 
-app.get('')
+app.use(require('./routes/index'));
+app.use(require('./routes/notes'));
+app.use(require('./routes/users'));
+
+
 
 //Static files
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 //Server is listenning
 app.listen(app.get('port'), ()=>{
