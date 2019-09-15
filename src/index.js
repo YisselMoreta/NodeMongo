@@ -15,7 +15,7 @@ app.set('port', process.env.PORT || 3000 );
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs',exphbs ({
     defaultLayaout: 'main' ,
-    layoutsDir: path.join(app.get('views'), 'layout'),
+    layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs'
 }));
@@ -28,14 +28,14 @@ app.use(methodOverride('_method'));
 app.use(session({
     secret: 'mysecretapp',
     resave: true,
-    saveUnitialized: true,
+    saveUninitialized: true
     
     
 }));
 
 
 
-//Global variaables 
+//Global variables 
 
 //Routes
 
