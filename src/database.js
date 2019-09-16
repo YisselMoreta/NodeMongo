@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
-const mongoDB = 'mongodb://localhost/DB-Notes';
-mongoose.connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true } );
-mongoose.Promise = global.Promise;
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connect('mongodb://localhost/DB-Notes', {
+    useCreateIndex: true,
+    useNewUrlParser: true,
+    useFindAndModify: false
+})
+.then(db=> console.log('DB is connected'))
+.catch(err => console.log(err)); 
+
+
+module.exports = mongoose;
